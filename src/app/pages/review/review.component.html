@@ -1,0 +1,50 @@
+<div>
+  <app-back-button name="Accueil" link="/"/>
+  <div class="movie-card">
+    <div class="poster">
+      <img [src]="movie?.posterPath" alt="Inception"/>
+    </div>
+    <div class="details">
+      <div class="title-container">
+        <h2>{{ movie?.title }}</h2>
+        <h2 class="release-year">{{ movie?.releaseDate | date:'yyyy' }}</h2>
+      </div>
+      <p>
+        {{ movie?.overview }}
+      </p>
+      <div class="info">
+        <div class="info-item">
+          <h4><span class="icon">🎬</span>Réalisateur</h4>
+          <p>{{ movie?.director }}</p>
+        </div>
+        <div class="info-item">
+          <h4><span class="icon">⏱️</span>Durée</h4>
+          <p>{{ movie?.runtime }} min</p>
+        </div>
+        <div class="info-item">
+          <h4><span class="icon">🎭</span>Genre</h4>
+          <p>{{ movie?.genre }}</p>
+        </div>
+        <div class="info-item">
+          <h4><span class="icon">💰</span>Box Office</h4>
+          <p>Budget: {{ movie?.budget | shortNumber }} $</p>
+          <p>Recettes: {{ movie?.revenue | shortNumber }} $</p>
+        </div>
+        <div class="info-item">
+          <h4><span class="icon">👥</span>Acteur.ices principaux</h4>
+          <p>{{ movie?.actors }}</p>
+        </div>
+      </div>
+      <div class="my-opinion">
+        <div class="rating">
+          <span>Note :</span>
+          <span *ngFor="let star of [1, 2, 3, 4, 5]" class="star"
+                [ngClass]="{'filled': star <= movie?.reviews![0].note}">
+        ★
+        </span>
+        </div>
+        <p>{{ movie?.reviews![0].comment }}</p>
+      </div>
+    </div>
+  </div>
+</div>

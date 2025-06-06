@@ -1,0 +1,23 @@
+.back-button {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  color: #666;
+  font-size: 1rem;
+  transition: color 0.3s ease;
+  width: fit-content;
+
+  &:hover {
+    color: #f4511e;
+  }
+
+  .back-arrow {
+    font-size: 1.2rem;
+    font-weight: bold;
+  }
+
+  .back-text {
+    font-weight: 500;
+  }
+}

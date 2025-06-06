@@ -1,0 +1,39 @@
+<div *ngIf="moviePage as page">
+  <div *ngIf="!isLoading" class="movie-grid">
+    <app-movie-card
+      *ngFor="let movie of page.content"
+      [movie]="movie"
+      class="movie-card-wrapper">
+    </app-movie-card>
+  </div>
+
+  <div *ngIf="isLoading">
+    Loading movies...
+  </div>
+
+  <div *ngIf="!isSearching" class="pagination-controls">
+    <button
+      (click)="goToPreviousPage()"
+      [disabled]="!hasPrevious"
+      class="btn btn-tertiary"
+      type="button">
+      Précedent
+    </button>
+
+    <div class="page-info">
+      <span>Page {{ currentDisplayPage }} sur {{ page.totalPages }}</span>
+    </div>
+
+    <button
+      (click)="goToNextPage()"
+      [disabled]="!hasNext"
+      class="btn btn-tertiary"
+      type="button">
+      Prochain
+    </button>
+  </div>
+</div>
+
+<div *ngIf="!moviePage" class="loading-message">
+  Loading movies...
+</div>

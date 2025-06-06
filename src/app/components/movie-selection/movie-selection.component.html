@@ -1,0 +1,22 @@
+<app-tmdb-search-bar/>
+<div *ngIf="!isLoading" class="movie-selection">
+  <div class="movie-grid">
+    <div
+      class="movie-card"
+      *ngFor="let movie of movies; let i = index"
+      [class.selected]="selectedMovie?.id === movie.id"
+      (click)="selectMovie(movie)"
+    >
+      <img
+        [src]="'https://image.tmdb.org/t/p/w200' + movie.posterPath"
+        [alt]="movie.title"
+        class="poster"
+      />
+      <div class="movie-title">{{ movie.title }}</div>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="isLoading" class="loading-spinner">
+  Loading movies...
+</div>
