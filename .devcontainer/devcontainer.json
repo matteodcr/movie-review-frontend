@@ -1,0 +1,21 @@
+{
+  "name": "Angular + pnpm DevContainer (Node 22)",
+  "build": {
+    "dockerfile": "Dockerfile"
+  },
+  "forwardPorts": [4200],
+  "postCreateCommand": "pnpm install",
+  "mounts": [
+    "source=angular_node_modules,target=/workspaces/app/node_modules,type=volume"
+  ],
+  "features": {
+    "ghcr.io/devcontainers/features/git:1": {},
+  },
+  "remoteUser": "node",
+  "customizations" : {
+    "jetbrains" : {
+      "backend" : "WebStorm"
+    }
+  }
+
+}

@@ -1,12 +1,27 @@
-import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import {Component} from '@angular/core';
+import {CommonModule} from '@angular/common';
+import {Router, RouterOutlet} from '@angular/router';
+import {MovieService} from './services/movie.service';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
+  standalone: true,
+  imports: [CommonModule, RouterOutlet],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+  styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'movie-review-frontend';
+  title = 'Cinémathèque Moderne';
+
+  constructor(private router: Router) {
+  }
+
+  goHome() {
+    this.router.navigate(['/']);
+  }
+
+  onConnect() {
+    console.log('Bouton Connecter cliqué');
+    // ici tu peux ajouter ta logique de connexion
+  }
 }

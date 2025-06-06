@@ -1,0 +1,42 @@
+.app-container {
+  padding: 1em;
+  min-height: 100vh;
+  max-width: 1600px;
+  margin: 0 auto;
+}
+
+.header {
+  position: relative;
+  padding: 0 0 2rem;
+  text-align: center;
+  color: #2d2424;
+}
+
+.header-content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.title {
+  font-size: 3.5rem;
+  font-weight: 300;
+  margin: 0;
+  letter-spacing: -1px;
+}
+
+.title:hover {
+  cursor: pointer;
+}
+
+.highlight {
+  color: #f39c12;
+  font-weight: 500;
+}
+
+.subtitle {
+  font-size: 1.2rem;
+  opacity: 0.9;
+  margin: 1rem 0 0;
+  font-weight: 300;
+}
+

@@ -1,0 +1,31 @@
+
+label {
+  font-weight: 600;
+  font-size: 1.125rem;
+  color: #f97316;
+}
+
+
+.star-rating {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  font-size: 2rem;
+  cursor: pointer;
+}
+
+.star-rating .star {
+  color: #e2e8f0;
+  transition: color 0.2s ease;
+}
+
+.star-rating .star.filled,
+.star-rating .star.hovered {
+  color: #f97316;
+}
+
+@media (max-width: 600px) {
+  .review-form {
+    padding: 20px;
+  }
+}

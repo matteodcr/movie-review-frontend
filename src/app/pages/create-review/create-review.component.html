@@ -1,0 +1,33 @@
+<app-back-button name="Accueil" link="/"/>
+<form class="paper" [formGroup]="reviewForm" (ngSubmit)="onSubmit()">
+  <div class="form-group centered">
+    <app-movie-selection (movieSelected)="onMovieSelected($event)"/>
+  </div>
+
+  <div class="form-group centered">
+    <div class="star-rating">
+      <ng-container *ngFor="let star of stars; index as i">
+        <span
+          class="star"
+          [ngClass]="{
+            'filled': i < reviewForm.value.note,
+            'hovered': i < hoveredStar
+          }"
+          (click)="setRating(i + 1)"
+          (mouseenter)="hoveredStar = i + 1"
+          (mouseleave)="hoveredStar = 0">
+          ★
+        </span>
+      </ng-container>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="comment">Commentaire :</label>
+    <textarea id="comment" formControlName="comment" placeholder="Partage ton avis..."></textarea>
+  </div>
+
+  <div class="form-actions centered">
+    <button type="submit" class="btn btn-primary" [disabled]="reviewForm.invalid">Envoyer la critique</button>
+  </div>
+</form>
